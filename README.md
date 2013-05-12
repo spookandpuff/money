@@ -27,7 +27,7 @@ require 'spook_and_puff/money'
 Update your Gemfile with the dependency.
 
 ```
-gem 'spook_and_puff_money', '~> 0.5.0', :require => 'spook_and_puff_money'
+gem 'spook_and_puff_money', '~> 0.5.0', :require => 'spook_and_puff/money'
 ```
 
 Then update your bundle like usual.
