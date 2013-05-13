@@ -53,6 +53,14 @@ describe SpookAndPuff::Money do
     expect(money('100').percent(10)).to eq(money('10'))
   end
 
+  it "should accept currency formatted strings" do
+    expect(money('$12.89')).to eq(money('12.89'))
+  end
+
+  it "should initialize with another money instance" do
+    expect(money(money('34.56'))).to eq(money('34.56'))
+  end
+
   it "should calculate proportion as percentage" do
     expect(money('200').proportion(money('50'))).to eq(BigDecimal.new('25'))
   end
