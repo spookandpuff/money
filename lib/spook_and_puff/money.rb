@@ -22,8 +22,8 @@ module SpookAndPuff
     def initialize(value)
       @raw = case value
       when SpookAndPuff::Money then value.raw
-      when BigDecimal then value.round(7)
-      when String     then BigDecimal.new(value.gsub(/\$/, '')).round(7)
+      when BigDecimal then value
+      when String     then BigDecimal.new(value.gsub(/\$/, ''))
       else raise TypeError.new("Money can only be initalized with a BigDecimal or String not #{value.class}.")
       end
     end
