@@ -28,6 +28,13 @@ module SpookAndPuff
       end
     end
 
+    # A convenience method which returns an instance initalized to zero.
+    #
+    # @return SpookAndPuff::Money
+    def self.zero
+      new("0")
+    end
+
     # Value comparison.
     #
     # @param [Money, Numeric, String] other

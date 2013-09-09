@@ -11,6 +11,10 @@ describe SpookAndPuff::Money do
     SpookAndPuff::Money.new(value)
   end
 
+  it "should create a zero value" do
+    expect(SpookAndPuff::Money.zero).to eq(money("0"))
+  end
+
   it "should format to currency string" do
     expect(money('345.8724').to_s).to eq('$345.87')
     expect(money('4543.6798').to_s).to eq('$4543.68')
