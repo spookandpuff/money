@@ -20,6 +20,11 @@ describe SpookAndPuff::Money do
     expect(money('4543.6798').to_s).to eq('$4543.68')
   end
 
+  it "should format currency string without prefix" do
+    expect(money('345.8724').to_s(:prefix => false)).to eq('345.87')
+    expect(money('4543.6798').to_s(:prefix => false)).to eq('4543.68')
+  end
+
   it "should make correct comparisons" do
     expect(money('45.68') == money('45.68')).to eq(true)
   end

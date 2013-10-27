@@ -193,11 +193,17 @@ module SpookAndPuff
       Money.new(@raw.round(places))
     end
 
-    # Returns a currency formatted string.
+    # Returns a currency formatted string, set to two decimal places. 
     #
+    # @param Hash opts
+    # @option opts [true, false] :prefix
     # @return String
-    def to_s
-      "$%.2f" % @raw.round(2)
+    def to_s(opts = {})
+      if opts.has_key?(:prefix) and opts[:prefix] == false
+        "%.2f" % @raw.round(2)
+      else
+        "$%.2f" % @raw.round(2)
+      end
     end
 
     private
