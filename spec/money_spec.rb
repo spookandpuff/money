@@ -25,6 +25,13 @@ describe SpookAndPuff::Money do
     expect(money('4543.6798').to_s(:prefix => false)).to eq('4543.68')
   end
 
+  it "should format currency string while optionally dropping zero cents" do
+    expect(money('345.00').to_s(:drop_cents => true)).to eq('$345')
+    expect(money('345.45').to_s(:drop_cents => true)).to eq('$345.45')
+    expect(money('345.00').to_s(:prefix => false, :drop_cents => true)).to eq('345')
+    expect(money('345.45').to_s(:prefix => false, :drop_cents => true)).to eq('345.45')
+  end
+
   it "should make correct comparisons" do
     expect(money('45.68') == money('45.68')).to eq(true)
   end

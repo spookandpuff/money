@@ -199,11 +199,11 @@ module SpookAndPuff
     # @option opts [true, false] :prefix
     # @return String
     def to_s(opts = {})
-      if opts.has_key?(:prefix) and opts[:prefix] == false
-        "%.2f" % @raw.round(2)
-      else
-        "$%.2f" % @raw.round(2)
-      end
+      rounded = @raw.round(2)
+      prefix = opts[:prefix] == false ? '' : '$'
+      format = (opts[:drop_cents] and rounded == @raw.round) ? "%i" : "%.2f"
+
+      "#{prefix}#{format}" % rounded
     end
 
     private

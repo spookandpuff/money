@@ -2,7 +2,7 @@ $:.push File.expand_path("../lib/spook_and_puff", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "spook_and_puff_money"
-  s.version     = "0.5.8"
+  s.version     = "0.5.9"
   s.authors     = ["Luke Sutton", "Ben Hull"]
   s.email       = ["lukeandben@spookandpuff.com"]
   s.homepage    = "http://spookandpuff.com"
