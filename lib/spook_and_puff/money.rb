@@ -2,7 +2,7 @@ require 'bigdecimal'
 
 # The main Spook and Puff module which namespaces our projects. Yay?
 module SpookAndPuff
-  # The money class represents monetary values with a precision of up to seven 
+  # The money class represents monetary values with a precision of up to seven
   # digits. When used as part of a comparison or mathmatical operation it
   # always ensures the other operand is coerced into a BigDecimal. This ensures
   # the precision is maintained.
@@ -40,10 +40,11 @@ module SpookAndPuff
     # @param [Money, Numeric, String] other
     #
     # @return Money
-    #
-    # @raise ArgumentError
     def ==(other)
-      @raw == for_comparison(other)
+      case other
+      when Money then @raw == other.raw
+      else false
+      end
     end
 
     # @param [Money, Numeric, String] other
@@ -185,7 +186,7 @@ module SpookAndPuff
     end
 
     # Rounds to the specified places; defaults to two.
-    # 
+    #
     # @param Integer places
     #
     # @return Money
@@ -193,7 +194,7 @@ module SpookAndPuff
       Money.new(@raw.round(places))
     end
 
-    # Returns a currency formatted string, set to two decimal places. 
+    # Returns a currency formatted string, set to two decimal places.
     #
     # @param Hash opts
     # @option opts [true, false] :prefix
@@ -208,7 +209,7 @@ module SpookAndPuff
 
     private
 
-    # Grabs the raw value of a Money instance, erroring with a message 
+    # Grabs the raw value of a Money instance, erroring with a message
     # about comparison if it's the wrong type.
     #
     # @param SpookAndPuff::Money other
@@ -224,7 +225,7 @@ module SpookAndPuff
       other.raw
     end
 
-    # Grabs the raw value of a Money instance, erroring with a message 
+    # Grabs the raw value of a Money instance, erroring with a message
     # about comparison if it's the wrong type.
     #
     # @param SpookAndPuff::Money other
@@ -241,7 +242,7 @@ module SpookAndPuff
       other.raw
     end
 
-    # Coerces the provided value into a BigDecimal. It will handle any 
+    # Coerces the provided value into a BigDecimal. It will handle any
     # Numeric or string.
     #
     # @param [Numeric, String] other

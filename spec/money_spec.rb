@@ -36,6 +36,12 @@ describe SpookAndPuff::Money do
     expect(money('45.68') == money('45.68')).to eq(true)
   end
 
+  it "should return false when comparing non-money values" do
+    expect(money('34.12') == "what").to eq(false)
+    expect(money('0.0') == 0).to eq(false)
+    expect(money('0.0') == nil).to eq(false)
+  end
+
   it "should handle multiplication" do
     expect(money('32.35') * 2).to eq(money('64.70'))
   end
