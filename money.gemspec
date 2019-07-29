@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
   s.email       = ["gems@companionstudio.com.au"]
   s.homepage    = "https://github.com/companionstudio/money"
   s.summary     = "A simple money class."
+  s.license     = "MIT"
 
   s.files = Dir["lib/**/*"] + ["MIT-LICENSE", "README.md"]
 
