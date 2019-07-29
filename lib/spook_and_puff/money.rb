@@ -9,6 +9,8 @@ module SpookAndPuff
   class Money
     include Comparable
 
+    NUMBER_OF_CENTS = 100.freeze
+
     # Stores the raw BigDecimal instance that a Money instance wraps.
     attr_reader :raw
 
@@ -26,6 +28,14 @@ module SpookAndPuff
       when String     then BigDecimal.new(value.gsub(/\$/, ''))
       else raise TypeError.new("Money can only be initalized with a BigDecimal or String not #{value.class}.")
       end
+    end
+
+    # Initialize a money instance by providing an number of cents
+    #
+    # @return SpookAndPuff::Money
+    def self.cents(cents)
+      raise TypeError.new('SpookAndPuff::Money#cents expects a number of cents') unless cents.is_a? Numeric
+      new((cents / NUMBER_OF_CENTS).to_s)
     end
 
     # A convenience method which returns an instance initalized to zero.
