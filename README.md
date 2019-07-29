@@ -1,6 +1,6 @@
 # SpookAndPuff::Money
 
-This is yet another Ruby class made to represent money. This one is dead simple. It doesn't integrate with any frameworks, it simply enforces precison by ensuring all operands -- for methods like +, -, / etc. -- are BigDecimals. 
+This is yet another Ruby class made to represent money. This one is dead simple. It doesn't integrate with any frameworks, it simply enforces precison by ensuring all operands -- for methods like +, -, / etc. -- are BigDecimals.
 
 It also provides a few other conveniences like formatting.
 
@@ -62,7 +62,7 @@ The argument types of each method is documented, so don't forget to have a look 
 
 # SpookAndPuff::MoneyAttributes
 
-This is a module provided as a convenience for working with ActiveRecord models. It is not required by default when using this gem, instead you must require it separately. 
+This is a module provided as a convenience for working with ActiveRecord models. It is not required by default when using this gem, instead you must require it separately.
 
 Assuming you have the gem installed:
 
