@@ -13,5 +13,5 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "rspec",     "2.13.0"
   s.add_development_dependency "yard",      "0.9.20"
-  s.add_development_dependency "redcarpet", "2.2.2"
+  s.add_development_dependency "redcarpet", "3.5.1"
 end
